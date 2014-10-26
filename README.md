@@ -1,4 +1,4 @@
-Hi.App
-======
+WeLove.app
+==========
 
-Say Hi!
+We love WeLove.
