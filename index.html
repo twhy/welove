@@ -176,8 +176,7 @@ $text.on('keyup', function(e) {
   }
 });
 
-
-$(window).on('resize', function() {
+$(window).on(navigator.standalone ? 'orientationchange' : 'resize', function() {
   adjustFontSize();
 }).on('shake', function() {
   color = colors[Math.floor(Math.random() * 7)];
