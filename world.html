@@ -14,6 +14,7 @@
       -webkit-text-size-adjust: none;
       font-family: Baskerville, Helvetica, Arial, sans-serif;
     }
+    .clearfix{ overflow: auto; _height:1% }
     h1, h2 { text-align: center; }
     h1 { 
       margin: 10px 0;
@@ -22,14 +23,45 @@
     h2 {
       color: #444;
       font-size: 16px;
+      margin-bottom: 5px;
+    }
+    #main {
+      width: 96%;
+      margin: auto;
+    }
+    .photo {
+      width: 25%;
+      float: left;
+    }
+    .photo img {
+      display: block;
+      width: 96%;
+      padding: 2%;
+    }
+    @media (max-width: 1000px) {
+      .photo { width: 33%; } 
+    }
+    @media (max-width: 700px) {
+      .photo { width: 50%; }  
+    }
+    @media (max-width: 450px) {
+      .photo { width: 100%; }
     }
     </style>
   </head>
 <body>
   <h1>WeLove Around the World</h1>
-  <div id="main">
+  <div id="main" class="clearfix">
     <h2>Alibaba, Hangzhou, China</h2>
+    <div class="photo">
+      <img src="images/placeholder.png" data-src="images/china/hangzhou/alibaba/1.jpg">
+    </div>
   </div>
+<script src="javascripts/jquery.js"></script>
+<script src="javascripts/jquery.unveil.js"></script>
+<script type="text/javascript">
+$('.photo img').unveil();
+</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
