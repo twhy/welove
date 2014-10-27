@@ -110,7 +110,7 @@ $container = $('#container');
 $flipper = $('#flipper');
 
 color = '#19E5DE';
-colors = ['#FF4400','#19E5DE', '#1CF49A', '#ED5BF7', '#F9F649', '#F91538', '#54EC7E'];
+colors = ['#FF4400','#19E5DE', '#1CF49A', '#ED5BF7', '#F9F649', '#54EC7E', '#CC342D'];
 
 function setText() {
   if (localStorage) {
@@ -185,7 +185,7 @@ $text.on('keyup', function(e) {
 $(window).on(navigator.standalone ? 'orientationchange' : 'resize', function() {
   adjustFontSize();
 }).on('shake', function() {
-  color = colors[Math.floor(Math.random() * 7)];
+  color = colors[Math.floor(Math.random() * colors.length)];
   if (localStorage) localStorage.setItem('color', color);
   setColor();
 });

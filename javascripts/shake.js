@@ -87,7 +87,7 @@
             currentTime = new Date();
             timeDifference = currentTime.getTime() - this.lastTime.getTime();
 
-            if (timeDifference > 100) {
+            if (timeDifference > 300) {
                 window.dispatchEvent(this.event);
                 this.lastTime = new Date();
             }
