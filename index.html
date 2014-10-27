@@ -191,7 +191,7 @@ $(window).on(navigator.standalone ? 'orientationchange' : 'resize', function() {
 });
 
 degree = 0;
-$flipper.css('-webkit-transform', 'rotateY(' + degree + 'deg)');
+$flipper.css('-webkit-transform', 0);
 $container.on('swiperight', function() {
   degree += 180;
   $flipper.css('-webkit-transform', 'rotateY(' + degree + 'deg)');
