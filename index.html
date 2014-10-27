@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WeLove</title>
+    <title>WeLove - Say What You Love</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -38,7 +38,7 @@
       vertical-align: middle;
     }
     #about {
-      color: #333;
+      color: #444;
       background: #eee;
       margin-bottom: 10px;
       -webkit-transform: rotateY(180deg);
@@ -101,6 +101,12 @@ $text = $('#text');
 $container = $('#container');
 $flipper = $('#flipper');
 
+function setText() {
+  if (localStorage) {
+    $text.text(localStorage.getItem('text') || 'Hello!');
+  }
+}
+
 fontSize = 0;
 function adjustFontSize() {
   var minFontSize = 100
@@ -120,13 +126,16 @@ function adjustFontSize() {
   }, 10);
 }
 
+setText();
 adjustFontSize();
 
-$text.on('keydown', function(e) {
+$text.on('keyup', function(e) {
   console.log('event:keyup', 'keyCode', e.keyCode, 'width', $(this).width(), 'height', $(this).height());
   var keyCode = e.keyCode;
   if (keyCode === 32 || keyCode === 13) return false; // return if Space or Enter is pressed
-
+  
+  if (localStorage) localStorage.setItem('text', $text.text());
+  
   var innerWidth = window.innerWidth;
   var maxFontSize = window.innerHeight - 40;
   
