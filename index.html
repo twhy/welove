@@ -17,17 +17,12 @@
       height: 100%;
       -webkit-perspective: 1000;
     }
-    #container.right #flipper {
-      -webkit-transform: rotateY(180deg);
-    }
-    
     #flipper {
       width: 100%;
       height: 100%;
     	-webkit-transition: 0.5s;
     	-webkit-transform-style: preserve-3d;
     }
-    
     #main {
       display: table;
       background: #333;
@@ -65,6 +60,9 @@
       margin-top: 30px;
       text-align: center;
     }
+    .footer p {
+      margin: 5px 0;
+    }
     a {
       color: #08c;
       text-decoration: none;
@@ -80,13 +78,14 @@
   <div id="container">
     <div id="flipper">
       <div id="main">
-        <h1 id="text" contenteditable="true">Hello</h1>
+        <h1 id="text" contenteditable="true">Hello!</h1>
       </div>
       <div id="about">
-        <h2 class="header">About</h2>
+        <h2 class="header">WeLove</h2>
         <img id="qrcode" src="images/qrcode.png">
         <div class="footer">
           <p>王海义(左使)</p>
+          <p><a href="mailto:tom.wanghaiyi@gmail.com">tom.wanghaiyi@gmail.com</a></p>
           <p>
             Github: <a href="https://github.com/twhy">twhy</a>  
             Twitter: <a href="https://twitter.com/twhy86">twhy86</a>
@@ -99,6 +98,9 @@
 <script src="javascripts/jquery.touch.js"></script>
 <script type="text/javascript">
 $text = $('#text');
+$container = $('#container');
+$flipper = $('#flipper');
+
 fontSize = 0;
 function adjustFontSize() {
   var minFontSize = 100
@@ -157,12 +159,15 @@ $(window).on('orientationchange', function() {
   adjustFontSize();
 });
 
-$('#container').on('swiperight', function() {
-  $(this).addClass('right');
-}).on('swipeleft', function() {
-  $(this).removeClass('right');
-});
+degree = 0;
 
+$container.on('swiperight', function() {
+  degree += 180;
+  $flipper.css('-webkit-transform', 'rotateY(' + degree + 'deg)');
+}).on('swipeleft', function() {
+  degree -= 180;
+  $flipper.css('-webkit-transform', 'rotateY(' + degree + 'deg)');
+});
 
 </script>
 </body>
