@@ -1,5 +1,5 @@
-WeLove.app
-==========
+WeLove
+======
 
 We love WeLove.
 
