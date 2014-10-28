@@ -147,13 +147,11 @@ setText();
 setColor();
 adjustFontSize();
 
-$text.on('keyup', function(e) {
+$text.on('keydown', function(e) {
   console.log('event:keyup', 'keyCode', e.keyCode, 'width', $(this).width(), 'height', $(this).height());
   var keyCode = e.keyCode;
   if (keyCode === 32 || keyCode === 13) return false; // return if Space or Enter is pressed
-  
-  if (localStorage) localStorage.setItem('text', $text.text());
-  
+    
   var innerWidth = window.innerWidth;
   var maxFontSize = window.innerHeight - 40;
   
@@ -180,6 +178,8 @@ $text.on('keyup', function(e) {
       }
     }, 10);
   }
+}).on('keyup', function(e) {
+  if (localStorage) localStorage.setItem('text', $text.text());
 });
 
 $(window).on(navigator.standalone ? 'orientationchange' : 'resize', function() {
