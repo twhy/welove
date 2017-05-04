@@ -59,7 +59,7 @@
     }
     .world {
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       text-decoration: underline;
     }
     .footer {
@@ -89,13 +89,13 @@
       <div id="about">
         <h2 class="header">WeLove</h2>
         <h3 class="world"><a href="world.html">Around the World</a></h3>
-        <img id="qrcode" src="images/qrcode.png">
+        <img id="qrcode" src="images/qrcode.jpg">
         <div class="footer">
           <p>王海义</p>
           <p><a href="mailto:tom.wanghaiyi@gmail.com">tom.wanghaiyi@gmail.com</a></p>
           <p>
             Github: <a href="https://github.com/twhy">twhy</a>  
-            Twitter: <a href="https://twitter.com/twhy86">twhy86</a>
+            微博: <a href="http://weibo.com/tomls">Tom老撕</a>
           </p>
         </div>
       </div>
@@ -109,12 +109,12 @@ $text = $('#text');
 $container = $('#container');
 $flipper = $('#flipper');
 
-color = '#19E5DE';
+color = '#f83538';
 colors = ['#FF4400','#19E5DE', '#1CF49A', '#ED5BF7', '#F9F649', '#54EC7E', '#CC342D', '#2FAEFF'];
 
 function setText() {
   if (localStorage) {
-    $text.text(localStorage.getItem('text') || 'Hello!');
+    $text.text(localStorage.getItem('text') || 'ILoveYou');
   }
 }
 
